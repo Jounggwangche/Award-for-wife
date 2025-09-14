@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최고의 아내상 - 이영식</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Harmony -->
+    <!-- Application Structure Plan: A single-page, vertical scrolling narrative structure was chosen to create an emotional and celebratory experience, like a digital unfolding card. This is more fitting for a personal award than a data-driven dashboard. The structure flows from a grand title (Hero), to the core message presented beautifully (The Award), to a tribute to the family they built (Our Family), and concludes with a heartfelt signature (Dedication). This user flow guides the recipient through a story, making the gift more memorable and impactful. -->
+    <!-- Visualization & Content Choices: Report Info: Personal award text for a 34th wedding anniversary. -> Goal: Create an elegant, interactive, and emotional digital gift. -> Viz/Presentation Method: 1. Main Text: Presented with elegant typography (HTML/CSS) to emphasize its importance. 2. Family Structure: A visual family tree using HTML/CSS Flexbox organizes the names logically and shows the beautiful result of their union. 3. Core Values: A simple, symbolic donut chart (Chart.js/Canvas) visualizes the core components of their 34 years (Love, Partnership, Family), adding a modern visual touch without being cold or corporate. -> Interaction: Subtle fade-in animations on scroll (JS) create a gentle, premium reveal experience. -> Justification: These choices transform a static text into a dynamic and heartfelt story, enhancing its emotional impact. -> Library/Method: HTML, Tailwind CSS, Vanilla JS, Chart.js. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Nanum Myeongjo', serif;
+        }
+        .bg-cream { background-color: #FDF9F0; }
+        .text-brown-dark { color: #43382B; }
+        .text-brown-light { color: #8C7B6C; }
+        .border-gold { border-color: #D4AF37; }
+        .bg-gold-light { background-color: #FBF3DA; }
+        .ring-gold { --tw-ring-color: #D4AF37; }
+        .seal-small {
+            width: 60px;
+            height: 60px;
+            background-color: #c0392b;
+            color: #f1c40f;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.2);
+            border: 2px solid #a03022;
+        }
+        .seal-text-small {
+            font-weight: 800;
+            font-size: 0.9rem;
+            transform: rotate(-10deg);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+         @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .footer-chart-container {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body class="bg-cream text-brown-dark">
+
+    <div class="container mx-auto max-w-4xl p-4 sm:p-8 md:p-12">
+
+        <main class="rounded-lg shadow-xl p-6 sm:p-10 md:p-16 border-2 border-gold" style="background-color: #F8F6F4; background-image: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');">
+
+            <header class="text-center pb-8 sm:pb-12 border-b-2 border-dashed border-gold fade-in">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brown-dark mb-4">최고의 아내상</h1>
+                <p class="text-lg sm:text-xl md:text-2xl text-brown-light">The Award of Excellence for The Best Wife</p>
+            </header>
+
+            <section class="py-8 sm:py-12 text-center fade-in">
+                <p class="text-lg text-brown-light mb-2">제 1 호</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-brown-dark">이 영 식</h2>
+            </section>
+
+            <section class="py-8 sm:py-12 space-y-8 fade-in">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-brown-dark">우리가 함께한 34년</h3>
+                    <p class="text-base sm:text-lg text-brown-light max-w-2xl mx-auto">
+                        아래의 내용은 당신이 우리 가족에게 얼마나 소중한 존재인지를 담고 있습니다.
+                    </p>
+                </div>
+                <div class="text-lg sm:text-xl md:text-2xl leading-normal text-left text-brown-dark bg-gold-light p-6 rounded-lg shadow-inner space-y-1">
+                    <p>
+                        위 사람은 남편 정광제와 결혼 34년간 함께하며 인생의 가장 빛나는 순간과 가장 힘든 시간을 모두 곁에서 지켜준 <span class="font-extrabold text-red-800">최고의 동반자</span>입니다.
+                    </p>
+                    <p>
+                        뜨거운 사랑과 헌신으로 한 가정을 밝히고, 두 아들 정덕용, 정주용을 성실하게 키워 훌륭하게 출가시켰습니다.
+                    </p>
+                    <p>
+                        당신은 따뜻한 마음으로 며느리 주민아, 정호현을 맞이하고 사랑스러운 손자 정헌영을 품에 안으며 우리 가족 모두에게 깊은 감동을 주었습니다.
+                    </p>
+                    <p>
+                        그대가 있었기에 삶이라는 거친 파도 속에서 흔들리지 않는 인생의 나침반이자, 지친 마음의 영원한 안식처가 되어주었습니다.
+                    </p>
+                    <p>
+                        당신과 함께한 모든 순간이 눈부시게 아름다웠고, 앞으로의 시간 또한 그대와 함께이기에 행복으로 가득할 것을 믿어 의심치 않습니다.
+                    </p>
+                    <p>
+                        당신에게 깊은 존경과 끝없는 감사를 표하며, 이 영광스러운 상을 수여합니다.
+                    </p>
+                </div>
+            </section>
+            
+            <section class="py-8 sm:py-12 fade-in">
+                 <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-brown-dark">우리의 사랑, 우리의 가족</h3>
+                    <p class="text-base sm:text-lg text-brown-light mt-2 max-w-2xl mx-auto leading-none">
+                       당신의 사랑으로 시작되어 이렇게 아름다운 가정을 이루었습니다. 우리 가족 한 명 한 명은 당신의 헌신이 맺은 소중한 결실입니다.
+                    </p>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <div class="flex items-center gap-4">
+                        <div class="flex flex-col items-center">
+                             <div class="bg-gold-light p-4 rounded-lg text-center shadow">
+                                <p class="text-sm text-brown-light">남편</p>
+                                <p class="text-xl font-bold">정광제</p>
+                             </div>
+                        </div>
+                        <div class="text-3xl text-red-500">❤️</div>
+                        <div class="flex flex-col items-center">
+                             <div class="bg-gold-light p-4 rounded-lg text-center shadow">
+                                <p class="text-sm text-brown-light">아내</p>
+                                <p class="text-xl font-bold">이영식</p>
+                             </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-px h-10 bg-gold my-4"></div>
+
+                    <div class="flex justify-center gap-8 md:gap-16">
+                        <div class="flex flex-col items-center gap-2">
+                             <div class="bg-white p-4 border-2 border-gold rounded-lg text-center shadow-lg">
+                                <p class="text-sm text-brown-light">아들</p>
+                                <p class="text-lg font-semibold">정덕용</p>
+                            </div>
+                            <div class="bg-white p-3 border border-gold rounded-lg text-center">
+                                <p class="text-xs text-brown-light">며느리</p>
+                                <p class="text-base font-medium">주민아</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                             <div class="bg-white p-4 border-2 border-gold rounded-lg text-center shadow-lg">
+                                <p class="text-sm text-brown-light">아들</p>
+                                <p class="text-lg font-semibold">정주용</p>
+                            </div>
+                            <div class="flex flex-row items-center gap-2">
+                                <div class="bg-white p-3 border border-gold rounded-lg text-center">
+                                    <p class="text-xs text-brown-light">며느리</p>
+                                    <p class="text-base font-medium">정호현</p>
+                                </div>
+                                <div class="bg-white p-3 border border-gold rounded-lg text-center">
+                                    <p class="text-xs text-brown-light">손자</p>
+                                    <p class="text-base font-medium">정헌영</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <footer class="pt-12 sm:pt-16 mt-8 sm:mt-12 border-t-2 border-dashed border-gold text-center fade-in">
+                <p class="text-xl sm:text-2xl font-bold text-brown-dark mb-4">2025년 9월 15일</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-8">
+                    <div class="flex flex-col items-center">
+                         <div class="footer-chart-container">
+                            <canvas id="valuesChart"></canvas>
+                        </div>
+                        <p class="text-base font-bold text-brown-dark mt-4">우리가 함께 빚어낸 34년의 빛</p>
+                    </div>
+                    <div class="flex flex-col items-center sm:items-start">
+                        <div class="flex items-center gap-2 mb-4">
+                            <p class="text-lg sm:text-xl font-semibold text-brown-dark">수여인: 남편 정광제</p>
+                            <div class="seal-small">
+                                <span class="seal-text-small">사랑의인</span>
+                            </div>
+                        </div>
+                        <p class="text-lg sm:text-xl text-brown-dark font-extrabold -mt-2">사랑합니다</p>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.2,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            const ctx = document.getElementById('valuesChart').getContext('2d');
+            const valuesChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['사랑과 헌신', '변함없는 믿음', '행복한 추억'],
+                    datasets: [{
+                        label: '34년의 구성',
+                        data: [40, 30, 30],
+                        backgroundColor: [
+                            'rgba(192, 57, 43, 0.8)',
+                            'rgba(212, 175, 55, 0.8)',
+                            'rgba(67, 56, 43, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(192, 57, 43, 1)',
+                            'rgba(212, 175, 55, 1)',
+                            'rgba(67, 56, 43, 1)'
+                        ],
+                        borderWidth: 1,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: "'Nanum Myeongjo', serif",
+                                    size: 10
+                                },
+                                color: '#43382B'
+                            }
+                        },
+                        tooltip: {
+                            bodyFont: {
+                                family: "'Nanum Myeongjo', serif",
+                                size: 10
+                            },
+                            titleFont: {
+                                family: "'Nanum Myeongjo', serif",
+                                size: 10
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
